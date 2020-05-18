@@ -1,0 +1,28 @@
+{
+    "name": "sarah-systems/ci4twig",
+    "description": "CodeIgniter4 Twig Integration",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shoji Ogura",
+            "email": "kohenji@sarahsystems.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "codeigniter4/framework": "^4",
+        "twig/twig": "^3"
+    },
+    "require-dev": {
+        "php": ">=7.2",
+        "codeigniter4/framework": "^4",
+        "twig/twig": "^3"
+    },
+    "autoload": {
+        "psr-4": {
+            "CI4Twig\\": "src"
+        }
+    }
+}
