@@ -47,7 +47,7 @@ CI4のview関数をTwig用にオーバーライド可能です。
 require_once ROOTPATH . "vendor/sarah-systems/ci4twig/src/Common.php";
 ```
 
-デフォルトでSmarty用のview()関数が有効になります。
+デフォルトでTwig用のview()関数が有効になります。
 `.env`の`CI4Twig.UseViewFunction`をfalseにすると、Twig用のview関数が無効になり、CI4自身のview関数が有効になります。
 
 使用法はCI4のview関数と同じです。
@@ -56,7 +56,7 @@ require_once ROOTPATH . "vendor/sarah-systems/ci4twig/src/Common.php";
 view('template.html.twig');
 ```
 
-拡張子`.html.twig`（`CI4Smarty.DefaultTemplateExtension`で設定されたものです。無指定の場合は`.html.twig`）は省略可能です。
+拡張子`.html.twig`（`CI4Twig.DefaultTemplateExtension`で設定されたものです。無指定の場合は`.html.twig`）は省略可能です。
 
 ```php
 view('template');
@@ -69,9 +69,9 @@ $data = [ 'apple' , 'banana' , 'lemon' ];
 view('template',$data);
 ```
 
-Smartyのtemplate上では
+Twigのtemplate上では
 ```twig
-{{ CI.0 }} <-- appleが表示されます。
+{{ CI.0 }} ← appleが表示されます。
 ```
 
 第3引数の$optionsは無視されます。

@@ -27,14 +27,14 @@ class CiTwig
     
     public function __construct()
     {
-        $debug = (bool)$_ENV['CI4Twig.Debug'] ?? false;
+        $debug = boolval($_ENV['CI4Twig.Debug'] ?? false);
         
-        $this->FilesystemLoader = new FilesystemLoader( $_ENV['CI4Twig.TemplateDir'] ?? $this->default_view_dir );
+        $this->FilesystemLoader = new FilesystemLoader($_ENV['CI4Twig.TemplateDir'] ?? $this->default_view_dir);
         $this->Environment = new Environment(
             $this->FilesystemLoader, [
-            'cache' => $_ENV['CI4Twig.CacheDir'] ?? $this->default_cache_dir,
-            'debug' => $debug,
-        ]
+                                       'cache' => $_ENV['CI4Twig.CacheDir'] ?? $this->default_cache_dir,
+                                       'debug' => $debug,
+                                   ]
         );
         if ($debug) {
             $this->Environment->addExtension(new DebugExtension());
