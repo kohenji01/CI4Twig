@@ -13,7 +13,10 @@
  * @link: https://codeigniter4.github.io/CodeIgniter4/
  */
 
+namespace CI4Twig;
+
 use CI4Twig\Config\Services;
+use Exception;
 
 /**
  * @param string $name
@@ -23,20 +26,18 @@ use CI4Twig\Config\Services;
  * @return string
  * @throws Exception
  */
-if (!function_exists('view') && boolval($_ENV['CI4Twig.UseViewFunction'] ?? true) === true) {
-    function view(string $name, $data = [], array $options = []): string
-    {
-        try {
-            $ext = $_ENV['CI4Twig.DefaultTemplateExtension'] ?? '.html.twig';
-            $twig = Services::twig();
-            unset($options); // 互換性のため維持。不要なのでunset
-            if (substr($name, 0, -strlen($ext)) != $ext) {
-                $name .= $ext;
-            }
-            $twig->Environment->addGlobal('CI', $data);
-        } catch (Exception $e) {
-            throw $e;
+function view(string $name, $data = [], array $options = []): string
+{
+    try {
+        $ext = $_ENV['CI4Twig.DefaultTemplateExtension'] ?? '.html.twig';
+        $twig = Services::twig();
+        unset($options); // 互換性のため維持。不要なのでunset
+        if (substr($name, 0, -strlen($ext)) != $ext) {
+            $name .= $ext;
         }
-        return $twig->Environment->render($name);
+        $twig->Environment->addGlobal('CI', $data);
+    } catch (Exception $e) {
+        throw $e;
     }
+    return $twig->Environment->render($name);
 }
