@@ -23,7 +23,7 @@ use CI4Twig\Config\Services;
  * @return string
  * @throws Exception
  */
-if (!function_exists('view') && boolval($_ENV['CI4Twig.UseViewFunc'] ?? true) === true) {
+if (!function_exists('view') && boolval($_ENV['CI4Twig.UseViewFunction'] ?? true) === true) {
     function view(string $name, $data = [], array $options = []): string
     {
         try {
