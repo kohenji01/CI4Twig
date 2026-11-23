@@ -17,6 +17,6 @@ jobs:
           extensions: intl, mbstring
           tools: composer:v2
           coverage: none
-      - run: composer validate
+      - run: composer validate --strict
       - run: composer update --no-interaction --prefer-dist
       - run: php tests/integration.php

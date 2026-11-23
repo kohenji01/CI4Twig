@@ -15,11 +15,6 @@
         "codeigniter4/framework": "^4",
         "twig/twig": "^3"
     },
-    "require-dev": {
-        "php": ">=7.2",
-        "codeigniter4/framework": "^4",
-        "twig/twig": "^3"
-    },
     "autoload": {
         "psr-4": {
             "CI4Twig\\": "src"

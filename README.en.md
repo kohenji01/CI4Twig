@@ -74,7 +74,9 @@ composer require sarah-systems/ci4twig:^0.2 --with-all-dependencies
 
 ## Compatibility and tests
 
-Composer declares PHP `>=7.2`, CodeIgniter `^4`, and Twig `^3`. Available combinations also depend on the requirements of those packages.
+Composer declares PHP `>=7.2`, CodeIgniter `^4`, and Twig `^3`. Current Twig 3 releases require PHP 8.1 or later. Available combinations also depend on the requirements of those packages. [Twig prerequisites](https://twig.symfony.com/doc/3.x/intro.html#prerequisites)
+
+CI4 4.7.6 and Twig 3.30.0 passed integration tests on Windows with PHP 8.2.29, 8.3.28, 8.4.15, and 8.5.12.
 
 Run `composer install` in this repository, then run `php tests/integration.php`.
 

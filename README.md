@@ -74,7 +74,9 @@ composer require sarah-systems/ci4twig:^0.2 --with-all-dependencies
 
 ## 対応と検証
 
-Composer の依存条件は PHP `>=7.2`、CodeIgniter `^4`、Twig `^3` です。利用できる組み合わせは各依存パッケージの要件にも従います。
+Composer の依存条件は PHP `>=7.2`、CodeIgniter `^4`、Twig `^3` です。現行の Twig 3 系は PHP 8.1 以上を要件としています。利用できる組み合わせは各依存パッケージの要件にも従います。[Twig の動作要件](https://twig.symfony.com/doc/3.x/intro.html#prerequisites)
+
+CI4 4.7.6 と Twig 3.30.0 の組み合わせを、Windows の PHP 8.2.29、8.3.28、8.4.15、8.5.12 で検証しました。
 
 このリポジトリで `composer install` を実行した後、`php tests/integration.php` で結合テストを実行できます。
 
