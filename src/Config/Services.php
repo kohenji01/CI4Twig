@@ -13,6 +13,7 @@
 namespace CI4Twig\Config;
 
 use CI4Twig\ThirdParty\CiTwig;
+use CI4Twig\TwigRenderer;
 use CodeIgniter\Config\Services as CoreServices;
 
 /**
@@ -37,5 +38,13 @@ class Services extends CoreServices
         }
         return new CiTwig();
     }
-    
+
+    public static function twigRenderer($getShared = true): TwigRenderer
+    {
+        if ($getShared) {
+            return static::getSharedInstance('twigRenderer');
+        }
+
+        return new TwigRenderer();
+    }
 }

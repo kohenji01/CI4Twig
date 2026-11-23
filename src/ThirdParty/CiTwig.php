@@ -27,7 +27,7 @@ class CiTwig
     
     public function __construct()
     {
-        $debug = boolval($_ENV['CI4Twig.Debug'] ?? false);
+        $debug = filter_var($_ENV['CI4Twig.Debug'] ?? false, FILTER_VALIDATE_BOOLEAN);
         
         $this->FilesystemLoader = new FilesystemLoader($_ENV['CI4Twig.TemplateDir'] ?? $this->default_view_dir);
         $this->Environment = new Environment(

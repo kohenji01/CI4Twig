@@ -16,28 +16,16 @@
 namespace CI4Twig;
 
 use CI4Twig\Config\Services;
-use Exception;
 
 /**
  * @param string $name
  * @param mixed $data
- * @param array $options Unused - reserved for third-party extensions.
+ * @param array $options Rendering options: saveData, cache, cache_name, debug.
  *
  * @return string
- * @throws Exception
+ * @throws \Twig\Error\Error
  */
 function view(string $name, $data = [], array $options = []): string
 {
-    try {
-        $ext = $_ENV['CI4Twig.DefaultTemplateExtension'] ?? '.html.twig';
-        $twig = Services::twig();
-        unset($options); // 互換性のため維持。不要なのでunset
-        if (substr($name, 0, -strlen($ext)) != $ext) {
-            $name .= $ext;
-        }
-        $twig->Environment->addGlobal('CI', $data);
-    } catch (Exception $e) {
-        throw $e;
-    }
-    return $twig->Environment->render($name);
+    return Services::twigRenderer()->render($name, $data, $options);
 }
